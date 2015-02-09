@@ -22,8 +22,9 @@ def read_gtf(gtf_file, interesting_features = ['gene', 'transcript', 'exon']):
             if feature not in interesting_features:
                 continue
 
+            # We treat the first 8 rows, the 9th is the feature and will be parsed again
             names = ['seqname', 'source', 'feature', 'start', 'end', 'score', 'strand', 'frame', 'attribute']
-            first_dict = dict(zip(names, fields))
+            first_dict = dict(zip(names, fields[:7]))
 
             info_field = fields[8].replace('"','').strip(';')
             info_fields = re.split('; | ', info_field)
