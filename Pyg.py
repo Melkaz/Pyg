@@ -1,6 +1,7 @@
 import re
 import gzip
 
+
 def read_gtf(gtf_file, interesting_features = ['gene', 'transcript', 'exon']):
     elements = list()
 
