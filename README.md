@@ -35,7 +35,7 @@ python3
 
 Load the Pyg module and parse the downloaded GTF file
 
-```
+```python
 import pyg
 
 # GTF file path
@@ -50,9 +50,9 @@ dicts_list = pyg.read_gtf(GTF, selected_feature = feature)
 
 From here, you can do some stuff.
 
-"On which chromosome is TLR4 ?"
+On which chromosome is TLR4 ?
 
-```
+```python
 for gene in dicts_list:
     if gene['gene_name'] == 'TLR4':
         print(gene['seqname'])
@@ -61,7 +61,7 @@ for gene in dicts_list:
 
 What is the mean length of genes ?
 
-```
+```python
 genes_lengths = []
 for gene in dicts_list:
     genes_lengths.append(gene['end'] - gene['start'])
@@ -71,13 +71,13 @@ sum(genes_lengths) / len(genes_lengths)
 
 Show the list of available columns (those that can be used when outputting a table)
 
-```
+```python
 pyg.show_cols(dicts_list)
 ```
 
 And print the table
 
-```
+```python
 pyg.print_table(
         dicts_list,
         selected_feature = 'gene',
